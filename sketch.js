@@ -3,10 +3,15 @@ function setup() {
 	noStroke();
 } 
 
+let vomPos = 0;
+let vomIsSet = false;
+
 function draw() { 
 	background('rgb(131,175,155)'); //Jade
    
-   drawHappyFace(300, 100, false);
+   translate(300, 100);
+
+   drawHappyFace(0, 0, false);
 }
 
 function drawHappyFace(x, y, emo){
@@ -50,5 +55,26 @@ function drawHappyFace(x, y, emo){
       fill(252,157,154);//light pink
       arc(x, y+25, 30, 30, radians(180), 0, PIE); 
    }
+
+   if (emo == false) {
+      vomit(x, y+25);
+   }
 };
 
+function vomit(x, y) {
+
+   if (vomIsSet == false) {
+      vomPos = y
+      vomIsSet = true
+   }
+
+   fill('rgb(50,205,50)'); //Lime Green
+   ellipse(x, vomPos, 20, 20);
+
+   vomPos++;
+
+   if (vomPos > 120) {
+      vomPos = y
+   }
+
+}
