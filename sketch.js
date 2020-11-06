@@ -79,10 +79,9 @@ function drawHappyFace(x, y, emo){
       arc(x, y+25, 30, 30, radians(180), 0, PIE); 
    }
 
-   //Vomit and state that vom man is present
+   //Do The Vomit
    if (emo == false) {
       vomit(x, y+25);
-      vommanIsThere = true
    }
 };
 
