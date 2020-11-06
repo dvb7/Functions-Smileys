@@ -1,17 +1,39 @@
 function setup() { 
-	createCanvas(600, 200);
+	createCanvas(windowWidth, windowHeight);
 	noStroke();
 } 
 
 let vomPos = 0;
 let vomIsSet = false;
+let vommanIsThere = false;
+let mousepress = false;
+
+function mousePressed() {
+   if (mouseButton === LEFT) {
+      mousepress = true
+   }
+}
 
 function draw() { 
-	background('rgb(131,175,155)'); //Jade
+   background('rgb(131,175,155)'); //Jade
    
-   translate(300, 100);
+   if (mousePress) {
+      drawHappyFace(mouseX, mouseY, vomprob())
+      mousepress = false
+   }
+   
+}
 
-   drawHappyFace(0, 0, false);
+
+
+function vomprob(){
+   let i = random(0,1)
+
+   if (i <= 0.1) {
+      return false
+   } else {
+      return true
+   }
 }
 
 function drawHappyFace(x, y, emo){
@@ -56,8 +78,10 @@ function drawHappyFace(x, y, emo){
       arc(x, y+25, 30, 30, radians(180), 0, PIE); 
    }
 
+   //Vomit and state that vom man is present
    if (emo == false) {
       vomit(x, y+25);
+      vommanIsThere = true
    }
 };
 
@@ -73,8 +97,9 @@ function vomit(x, y) {
 
    vomPos++;
 
-   if (vomPos > 120) {
+   if (vomPos > height/2+20) {
       vomPos = y
    }
 
 }
+
