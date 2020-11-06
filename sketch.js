@@ -1,35 +1,36 @@
 function setup() { 
-	createCanvas(windowWidth, windowHeight);
+   createCanvas(windowWidth, windowHeight);
+   background('rgb(131,175,155)'); //Jade
 	noStroke();
 } 
 
 let vomPos = 0;
 let vomIsSet = false;
 let vommanIsThere = false;
-let mousepress = false;
+let mousePress = false;
 
 function mousePressed() {
    if (mouseButton === LEFT) {
-      mousepress = true
+      mousePress = true
    }
 }
 
 function vomprob(){
    let i = random(0,1)
 
-   if (i <= 0.1) {
+   if (i <= 0.1 && vommanIsThere == false) {
       return false
+      vommanIsThere = true
    } else {
       return true
    }
 }
 
 function draw() { 
-   background('rgb(131,175,155)'); //Jade
    
    if (mousePress) {
       drawHappyFace(mouseX, mouseY, vomprob())
-      mousepress = false
+      mousePress = false
    }
    
 }
