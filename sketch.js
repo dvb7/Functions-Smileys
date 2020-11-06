@@ -14,6 +14,16 @@ function mousePressed() {
    }
 }
 
+function vomprob(){
+   let i = random(0,1)
+
+   if (i <= 0.1) {
+      return false
+   } else {
+      return true
+   }
+}
+
 function draw() { 
    background('rgb(131,175,155)'); //Jade
    
@@ -25,16 +35,6 @@ function draw() {
 }
 
 
-
-function vomprob(){
-   let i = random(0,1)
-
-   if (i <= 0.1) {
-      return false
-   } else {
-      return true
-   }
-}
 
 function drawHappyFace(x, y, emo){
    
